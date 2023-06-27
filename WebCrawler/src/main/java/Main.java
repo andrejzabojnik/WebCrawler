@@ -17,26 +17,19 @@ public class Main {
     public static void main(String[] args) {
 
 
-
         try {
             InputReader inputReader = new InputReader();
             Crawler crawler = new Crawler();
             ArgumentParser ArgumentParser = new ArgumentParser(args);
 
-
-            // VSTUP
-
-            // Zoznam URL adries stránok, ktoré chceme prehľadať
             ArrayList<String> urlList = inputReader.readFile(ArgumentParser.getInputFile());
 
-            // Hĺbka prehľadávania stránok
             long depth = ArgumentParser.getDepth();
-
-            // VSTUP
 
             for (String url : urlList) {
                 crawler.crawl(depth, url, new ArrayList<>());
             }
+
         } catch (InvalidInputFileException | UnknownParametersException e) {
             System.out.println(e.getMessage());
 

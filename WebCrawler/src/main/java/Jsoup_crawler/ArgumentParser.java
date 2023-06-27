@@ -10,13 +10,12 @@ import com.beust.jcommander.ParameterException;
 
 
 
-public class ArgumentParser {
+public class  ArgumentParser {
 
 
 //    parameters for TextProcesses
     @Parameter(names = "-depth", description = "Depth of crawling")
     private static long depth = 0;
-
 
     @Parameter(names = "-a", description = "Links crawler")
     private static boolean links = false;
@@ -51,14 +50,8 @@ public class ArgumentParser {
         }
     }
 
-
-
-
-
-
     //  functions
     public static String getNewFileName() { return newFile;}
-
 
 
     public static boolean isParagraph() {

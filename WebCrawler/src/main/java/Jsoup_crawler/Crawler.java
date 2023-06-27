@@ -18,7 +18,6 @@ public class Crawler {
     public void crawl(long deep, String url, ArrayList<String> visited) {
         Stack<Caller> stack = new Stack<>();
         deep *= -1;
-        System.out.println("HLBA JE: " + deep);
         stack.push(new Caller(deep, url));
 
         try{
