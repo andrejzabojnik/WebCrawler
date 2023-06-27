@@ -1,8 +1,5 @@
 package Jsoup_crawler;
 
-
-import Jsoup_crawler.exception.InvalidCrawlerException;
-import Jsoup_crawler.exception.InvalidParametersCombinationException;
 import Jsoup_crawler.exception.UnknownParametersException;
 import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameter;
@@ -53,7 +50,6 @@ public class  ArgumentParser {
     //  functions
     public static String getNewFileName() { return newFile;}
 
-
     public static boolean isParagraph() {
         return paragraph;
     }
@@ -64,7 +60,6 @@ public class  ArgumentParser {
     public static boolean isLinks() { return links;}
 
     public static long getDepth() { return depth;}
-
 
     public static String getInputFile() {
         return inputFile;
