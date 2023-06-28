@@ -2,30 +2,30 @@ package Jsoup_crawler;
 
 public class Text_filter {
     static String text_filter(String text) {
-        String s = "";
+        StringBuilder s = new StringBuilder();
         boolean write = true;
         boolean first = true;
 
         for (int i = 0; i < text.length(); i++) {
-            char znak = text.charAt(i);
+            char sign = text.charAt(i);
 
-            if (znak == '<') {
+            if (sign == '<') {
                 if(!first){
                     write = false;
                 }
-            } else if(first && znak == ' '){
+            } else if(first && sign == ' '){
                 write = false;
-            }else if (znak == '>') {
+            }else if (sign == '>') {
                 if(first) {
-                    s += ": ";
+                    s.append(": ");
                     first = false;
                 }
                 write = true;
             } else if (write) {
-                s += text.substring(i,i+1);
+                s.append(text.charAt(i));
             }
         }
 
-        return s;
+        return s.toString();
     }
 }

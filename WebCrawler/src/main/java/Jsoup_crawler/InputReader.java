@@ -1,12 +1,10 @@
 package Jsoup_crawler;
 
 import Jsoup_crawler.exception.InvalidInputFileException;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
 public class InputReader {
 
@@ -23,7 +21,7 @@ public class InputReader {
             return urls;
 
         } catch (IOException e) {
-            throw new InvalidInputFileException("Chyba: Nesprávne zadaný súbor");
+            throw new InvalidInputFileException("Error: Invalid file specified");
         }
     }
 }

@@ -1,21 +1,12 @@
 package Jsoup_crawler;
 
-class Caller {
-    private long deep;
-    private String url;
-
-    public Caller(long deep, String url) {
-        this.deep = deep;
-        this.url = url;
+record Caller(long deep, String url) {
+    public long deep() {
+        return deep;
     }
 
-    public long deep(){
-        return this.deep;
+    public String url() {
+        return url;
     }
-
-    public String url(){
-        return this.url;
-    }
-
-
 }
+

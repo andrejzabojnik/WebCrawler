@@ -33,7 +33,7 @@ public class  ArgumentParser {
     @Parameter(names = "-newFile", description = "Create new file")
     private static String newFile = "";
 
-    //  Jcommander instance
+    //  jCommander instance
     public ArgumentParser(String[] args) throws UnknownParametersException {
         JCommander jCommander = JCommander.newBuilder()
                 .addObject(this)
@@ -43,7 +43,7 @@ public class  ArgumentParser {
 
         }
         catch (ParameterException e) {
-            throw new UnknownParametersException("Chyba: Zadane parametre neexistuju");
+            throw new UnknownParametersException("Error: The specified parameters do not exist");
         }
     }
 

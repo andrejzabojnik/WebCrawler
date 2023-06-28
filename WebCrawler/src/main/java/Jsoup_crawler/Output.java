@@ -4,7 +4,7 @@ import Jsoup_crawler.exception.InvalidOutputFileException;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 import org.jsoup.nodes.Element;
-
+import java.nio.file.Path;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -16,10 +16,11 @@ public class Output {
         Elements elements = new Elements();
         String filename = ArgumentParser.getNewFileName();
         String selects = "";
-        String output = "URL: " + url + "\n";
-        String title = doc.title();
-        output += Language_detector.language_detector(doc) + "\n";
-        output += "Title: " + title + "\n";
+        StringBuilder outputBuilder = new StringBuilder();
+
+        outputBuilder.append("URL: ").append(url).append("\n");
+        outputBuilder.append(Language_detector.language_detector(doc)).append("\n");
+        outputBuilder.append("Title: ").append(doc.title()).append("\n");
 
         if (ArgumentParser.isParagraph()) {
             selects += "p ";
@@ -41,17 +42,16 @@ public class Output {
 
         elements.addAll(doc.select(selects));
 
-
         for (Element element : elements) {
-            output += Text_filter.text_filter(element.toString()) + "\n";
+            outputBuilder.append(Text_filter.text_filter(element.toString())).append("\n");
         }
 
-        output += "\n";
+        outputBuilder.append("\n");
+        String output = outputBuilder.toString();
 
-        if(ArgumentParser.isPrintText()){
+        if (ArgumentParser.isPrintText()) {
             System.out.println(output);
         }
-
 
         try {
             if (!filename.isEmpty()) {
@@ -62,20 +62,22 @@ public class Output {
         }
     }
 
+
     public static void createNewFile(String fileName, String outputData) throws InvalidOutputFileException {
         String path = System.getProperty("user.home") + "/Desktop";
         String filename = fileName + ".txt";
         String fullPath = Paths.get(path, filename).toString();
+        Path filePath = Paths.get(fullPath);
 
         try {
-            if (!Files.exists(Paths.get(fullPath))) {
-                Files.createFile(Paths.get(fullPath));
+            if (!Files.exists(filePath)) {
+                Files.createFile(filePath);
             }
 
-            Files.write(Paths.get(fullPath), outputData.getBytes(), StandardOpenOption.APPEND);
-            System.out.println("Zápis do súboru prebehol úspešne.");
+            Files.write(filePath, outputData.getBytes(), StandardOpenOption.APPEND);
+            System.out.println("Writing to the file was successful");
         } catch (IOException e) {
-            throw new InvalidOutputFileException("Chyba: súbor sa nepodarilo vytvoriť");
+            throw new InvalidOutputFileException("Error: file could not be created");
         }
     }
 }

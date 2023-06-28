@@ -22,7 +22,7 @@ public class Language_detector {
             e.printStackTrace();
         }
 
-        return "Jazyk stranky sa nepodarilo rozpoznať.";
+        return "The page language could not be recognized";
     }
 
 }

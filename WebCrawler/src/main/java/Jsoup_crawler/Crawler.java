@@ -14,7 +14,7 @@ import java.util.Stack;
 
 public class Crawler {
 
-    //metoda na prehladavanie podstranok
+    //method for scanning subpages
     public void crawl(long deep, String url, ArrayList<String> visited) {
         Stack<Caller> stack = new Stack<>();
         deep *= -1;
@@ -44,7 +44,7 @@ public class Crawler {
         }
     }
 
-    //metoda na overenie, či stránku ide otvoriť
+    //method to check if the page can be opened
     private Document request(String url, ArrayList<String> v){
         try{
             Connection con = Jsoup.connect(url);
@@ -52,10 +52,10 @@ public class Crawler {
 
             if(con.response().statusMessage().equals("OK")){
 
-                //vypis obsahu stranky
+                //page content listing
                 Output.text_output(doc, url);
 
-                //prida medzi skontrolovane stranky
+                //add to checked pages
 
                 v.add(url);
 
@@ -63,9 +63,7 @@ public class Crawler {
             }
             return null;
         }
-        catch (IOException e){
-            return null;
-        }catch (IllegalArgumentException e) {
+        catch (IOException | IllegalArgumentException e){
             return null;
         }
 
