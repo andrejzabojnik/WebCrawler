@@ -16,7 +16,7 @@ public class Language_detector {
             detector.append(text);
             String language = detector.detect();
 
-            return "Jazyk webovej stránky: " + language;
+            return "lang: " + language;
 
         } catch (LangDetectException e) {
             e.printStackTrace();

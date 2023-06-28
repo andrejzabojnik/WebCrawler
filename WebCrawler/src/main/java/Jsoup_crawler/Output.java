@@ -16,7 +16,10 @@ public class Output {
         Elements elements = new Elements();
         String filename = ArgumentParser.getNewFileName();
         String selects = "";
-
+        String output = "URL: " + url + "\n";
+        String title = doc.title();
+        output += Language_detector.language_detector(doc) + "\n";
+        output += "Title: " + title + "\n";
 
         if (ArgumentParser.isParagraph()) {
             selects += "p ";
@@ -38,18 +41,12 @@ public class Output {
 
         elements.addAll(doc.select(selects));
 
-        String output = "URL: " + url + "\n";
-
-        String title = doc.title();
-        output += "Title: " + title + "\n";
-
 
         for (Element element : elements) {
             output += Text_filter.text_filter(element.toString()) + "\n";
         }
 
-        output += Language_detector.language_detector(doc) + "\n";
-
+        output += "\n";
 
         if(ArgumentParser.isPrintText()){
             System.out.println(output);
@@ -76,6 +73,7 @@ public class Output {
             }
 
             Files.write(Paths.get(fullPath), outputData.getBytes(), StandardOpenOption.APPEND);
+            System.out.println("Zápis do súboru prebehol úspešne.");
         } catch (IOException e) {
             throw new InvalidOutputFileException("Chyba: súbor sa nepodarilo vytvoriť");
         }
