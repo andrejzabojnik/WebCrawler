@@ -75,7 +75,7 @@ public class Output {
             }
 
             Files.write(filePath, outputData.getBytes(), StandardOpenOption.APPEND);
-            System.out.println("Writing to the file was successful");
+
         } catch (IOException e) {
             throw new InvalidOutputFileException("Error: file could not be created");
         }

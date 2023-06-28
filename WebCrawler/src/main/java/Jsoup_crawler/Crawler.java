@@ -20,11 +20,6 @@ public class Crawler {
         deep *= -1;
         stack.push(new Caller(deep, url));
 
-        try{
-            DetectorFactory.loadProfile("src/main/profiles");
-        } catch (LangDetectException e) {
-            e.printStackTrace();
-        }
 
         while (!stack.isEmpty()) {
             Caller frame = stack.pop();
