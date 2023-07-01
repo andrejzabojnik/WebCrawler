@@ -25,6 +25,21 @@
             <artifactId>jsoup</artifactId>
             <version>1.16.1</version>
         </dependency>
+        <dependency>
+            <groupId>com.cybozu.labs</groupId>
+            <artifactId>jsonic</artifactId>
+            <version>1.2.0</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/language-detection-master/language-detection-master/lib/jsonic-1.2.0.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>com.cybozu.labs</groupId>
+            <artifactId>langdetect</artifactId>
+            <version>1.1-20120112</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/language-detection-master/language-detection-master/lib/langdetect.jar</systemPath>
+        </dependency>
+
         <!-- Ďalšie závislosti -->
     </dependencies>
 
