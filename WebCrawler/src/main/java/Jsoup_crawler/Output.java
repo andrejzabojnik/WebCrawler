@@ -43,7 +43,7 @@ public class Output {
         elements.addAll(doc.select(selects));
 
         for (Element element : elements) {
-            outputBuilder.append(Text_filter.text_filter(element.toString())).append("\n");
+            outputBuilder.append(NPL.textProcessing(Text_filter.text_filter(element.toString()))).append("\n");
         }
 
         outputBuilder.append("\n");
