@@ -40,6 +40,7 @@
             <systemPath>${basedir}/language-detection-master/language-detection-master/lib/langdetect.jar</systemPath>
         </dependency>
 
+
         <dependency>
             <groupId>org.apache.opennlp</groupId>
             <artifactId>opennlp-tools</artifactId>
