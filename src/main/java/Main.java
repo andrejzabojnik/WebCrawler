@@ -15,7 +15,7 @@ public class Main {
 
         try{
             DetectorFactory.loadProfile("src/main/profiles");
-        } catch (LangDetectException e) {
+        } catch (LangDetectException e) {d
             e.printStackTrace();
         }
 
