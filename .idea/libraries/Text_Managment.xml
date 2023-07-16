@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Text_Managment">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/Text_Managment.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
